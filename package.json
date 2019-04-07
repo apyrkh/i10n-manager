@@ -1,0 +1,25 @@
+{
+  "name": "l10n-manager",
+  "version": "0.0.1",
+  "description": "Allows to manage localization texts",
+  "main": "l10n-manager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apyrkh/l10n-manager.git"
+  },
+  "keywords": [
+    "js",
+    "l10n",
+    "i18n",
+    "translations"
+  ],
+  "author": "Alexander Pyrkh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apyrkh/l10n-manager/issues"
+  },
+  "homepage": "https://github.com/apyrkh/l10n-manager#readme"
+}

@@ -1,0 +1,7 @@
+# ignored
+.idea/
+*.log
+*.iml
+*.ipr
+*.iws
+*.orig
