@@ -4,7 +4,7 @@
   "description": "Allows to manage localization texts",
   "main": "l10n-manager.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node l10n-manager.test.js"
   },
   "repository": {
     "type": "git",
@@ -13,8 +13,11 @@
   "keywords": [
     "js",
     "l10n",
+    "localization",
     "i18n",
-    "translations"
+    "internationalization",
+    "lightweight",
+    "simple"
   ],
   "author": "Alexander Pyrkh",
   "license": "MIT",

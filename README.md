@@ -1,5 +1,6 @@
 # l10n-manager
-Localization manager allows to manage localization texts
+
+Simple lightweight localization manager allows to manage localization texts
 
 ## Usage
 
