@@ -1,8 +1,11 @@
 {
   "name": "l10n-manager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Allows to manage localization texts",
   "main": "l10n-manager.js",
+  "files": [
+    "l10n-manager.js"
+  ],
   "scripts": {
     "test": "node l10n-manager.test.js"
   },

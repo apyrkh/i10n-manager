@@ -1,4 +1,3 @@
 .idea/
-.babelrc
 .gitignore
-l10n-manager.js
+l10n-manager.test.js
