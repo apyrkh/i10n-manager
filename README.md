@@ -1,3 +1,5 @@
+# The project is under development
+
 # l10n-manager
 
 Simple lightweight localization manager allows to manage localization texts

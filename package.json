@@ -4,6 +4,7 @@
   "description": "Allows to manage localization texts",
   "main": "l10n-manager.js",
   "files": [
+    "/middlewares/*",
     "l10n-manager.js"
   ],
   "scripts": {

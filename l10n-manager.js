@@ -1,19 +1,21 @@
-function LocalizationManager() {
-  const middlewares = Array.from(arguments);
+function LocalizationManager(options = {}) {
+  const locale = options.locale || 'en';
+  const middlewares = options.middlewares || [];
+
   const l10nNames = [];
   const l10nTexts = {};
 
-  function applyMiddleware(text) {
+  function applyMiddleware(text, ...args) {
     return middlewares.reduce((prevText, middleware, index) => {
-      if (typeof middleware !== 'function') throw new Error('LocalizationManager: middleware [' + index + '] must be a function');
+      if (typeof middleware !== 'function') throw new Error('LocalizationManager: middleware [' + index + '] is not a function');
 
-      return middleware(prevText);
+      return middleware(prevText, ...args);
     }, text);
   }
 
   return {
     register(name, texts) {
-      // check that resources have not been already registered
+      // check that resources with that name have not been registered yet
       if (l10nNames.indexOf(name) === -1) {
         l10nNames.push(name);
 
@@ -25,9 +27,9 @@ function LocalizationManager() {
         }
       }
     },
-    getText(code) {
+    getText(code, ...args) {
       const text = l10nTexts[code];
-      return text ? applyMiddleware(text) : code;
+      return text ? applyMiddleware(text, ...args) : code;
     }
   };
 }
