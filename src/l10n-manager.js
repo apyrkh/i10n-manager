@@ -2,7 +2,7 @@ function LocalizationManager(options = {}) {
   const locale = options.locale || 'en';
   const middlewares = options.middlewares || [];
 
-  const l10nNames = [];
+  const keys = [];
   const l10nTexts = {};
 
   function applyMiddleware(text, ...args) {
@@ -14,10 +14,10 @@ function LocalizationManager(options = {}) {
   }
 
   return {
-    register(name, texts) {
-      // check that resources with that name have not been registered yet
-      if (l10nNames.indexOf(name) === -1) {
-        l10nNames.push(name);
+    addTexts(key, texts) {
+      // check that resources with that key have not been registered yet
+      if (keys.indexOf(key) === -1) {
+        keys.push(key);
 
         // extend l10n texts
         for (let key in texts) {

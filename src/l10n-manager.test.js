@@ -21,7 +21,7 @@ function addOne(text) {
 
 // test execution
 const l10n = new LocalizationManager({ locale: 'en', middlewares: [InsertParams] });
-l10n.register('test', l10nResources);
+l10n.addTexts('test', l10nResources);
 
 
 console.log(l10n.getText('button.open'));

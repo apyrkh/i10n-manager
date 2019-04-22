@@ -2,13 +2,13 @@
   "name": "l10n-manager",
   "version": "0.0.2",
   "description": "Allows to manage localization texts",
-  "main": "l10n-manager.js",
+  "main": "index.js",
   "files": [
-    "/middlewares/*",
-    "l10n-manager.js"
+    "/src/middlewares/*",
+    "/src/l10n-manager.js"
   ],
   "scripts": {
-    "test": "node l10n-manager.test.js"
+    "test": "node src/l10n-manager.test.js"
   },
   "repository": {
     "type": "git",
