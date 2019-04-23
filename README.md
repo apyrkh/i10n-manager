@@ -63,3 +63,15 @@ l10n.addTexts('buttons', buttonTexts);
 
 l10n.getText('button.open');
 ```
+
+## API
+
+`LocalizationManager` API:
+- `constructor(locale)`
+  - `locale` - is a string locale, e.g. `en`, `en-US` and etc.
+- `addTexts(key, texts)`
+  - `key` - is a string key of a set of texts
+  - `texts` - is a flat object where key is a code and value is a text, e.g. `{ 'button.open': 'Open' }`
+- `getText(code, args)`
+  - `code` - is a key of necessary text
+  - `args` - is an array (ordered parameters) or an object (named parameters) if necessary, e.g. `[5]`, `{ seconds: 5 }`
