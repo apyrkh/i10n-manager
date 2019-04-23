@@ -10,25 +10,38 @@ Simple lightweight localization manager allows to manage localization texts
 
 ## Getting started
 
-In common case localization manager can be used to get simple text or text with inserted parameters.
-Parameters can be set as an array (ordered parameters) or as an object (named parameters)
+In common case localization manager is used to get text or text with parameters by the `code`.
+
+__Texts__ must be presented as an object where key is a `code` and value is a localized text.
+__Texts__ may contain parameters which must be surrounded with braces `{}`.
+__Parameter__ must be presented as a order number or a variable name.
+
+```json
+{
+  "button.open": "Open",
+  "button.open_in": "Open in {0} seconds",
+  "button.close_in": "Close in {seconds} seconds",
+}
+```
+
+Therefore when getting text __parameters__ must be an array (ordered parameters) or an object (named parameters) if necessary.
 
 ```javascript
-const DefaultLocalizationManager = require('l10n-manager');
+const LocalizationManager = require('l10n-manager');
 
 const buttonTexts = {
   'button.open': 'Open',
   'button.open_in': 'Open in {0} seconds',
   'button.close_in': 'Close in {seconds} seconds',
 };
-const l10n = new DefaultLocalizationManager('en');
+const l10n = new LocalizationManager('en');
 l10n.addTexts('buttons', buttonTexts);
 
 // ... then where necessary just get text by code
 
-l10n.getText('button.open') === 'Open';
-l10n.getText('button.open_in', [5]) === 'Open in 5 seconds'; // ordered parameters
-l10n.getText('button.close_in', { seconds: 5 }) === 'Close in 5 seconds'; // named parameters
+l10n.getText('button.open') === 'Open'; // getting text
+l10n.getText('button.open_in', [5]) === 'Open in 5 seconds'; // getting text with ordered parameters
+l10n.getText('button.close_in', { seconds: 5 }) === 'Close in 5 seconds'; // getting text with named parameters
 ```
 
 ## Advanced guide
@@ -38,13 +51,12 @@ In this case localization managed can be used with a custom set of middlewares.
 
 ```javascript
 const LocalizationManager = require('l10n-manager/src/l10n-manager');
-const InsertParams = require('l10n-manager/src/middlewares/InsertParams');
 
 const buttonTexts = {
   'button.open': 'Open',
   'button.close': 'Close',
 };
-const l10n = new LocalizationManager({ locale: 'en', middlewares: [InsertParams] });
+const l10n = new LocalizationManager({ locale: 'en', middlewares: [CustomMiddleware1, CustomMiddleware2, ...] });
 l10n.addTexts('buttons', buttonTexts);
 
 // ... then where necessary just get text by code
