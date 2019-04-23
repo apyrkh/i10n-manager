@@ -20,7 +20,7 @@ function addOne(text) {
 
 
 // test execution
-const l10n = new LocalizationManager({ locale: 'en', middlewares: [InsertParams] });
+const l10n = new LocalizationManager('en', [InsertParams]);
 l10n.addTexts('test', l10nResources);
 
 

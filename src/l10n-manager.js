@@ -1,11 +1,12 @@
-function LocalizationManager(options = {}) {
-  const locale = options.locale || 'en';
-  const middlewares = options.middlewares || [];
-
+function LocalizationManager(locale, middlewares) {
   const keys = [];
-  const l10nTexts = {};
+  const allTexts = {};
 
   function applyMiddleware(text, ...args) {
+    if (!middlewares) {
+      return text;
+    }
+
     return middlewares.reduce((prevText, middleware, index) => {
       if (typeof middleware !== 'function') throw new Error('LocalizationManager: middleware [' + index + '] is not a function');
 
@@ -16,19 +17,20 @@ function LocalizationManager(options = {}) {
   return {
     addTexts(key, texts) {
       // check that resources with that key have not been registered yet
-      if (keys.indexOf(key) === -1) {
-        keys.push(key);
+      if (keys.indexOf(key) > -1) {
+        return;
+      }
 
-        // extend l10n texts
-        for (let key in texts) {
-          if (texts.hasOwnProperty(key)) {
-            l10nTexts[key] = texts[key];
-          }
+      // extend l10n texts
+      for (let key in texts) {
+        if (texts.hasOwnProperty(key)) {
+          allTexts[key] = texts[key];
         }
       }
+      keys.push(key);
     },
     getText(code, ...args) {
-      const text = l10nTexts[code];
+      const text = allTexts[code];
       return text ? applyMiddleware(text, ...args) : code;
     }
   };
