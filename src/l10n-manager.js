@@ -1,37 +1,37 @@
 function LocalizationManager(locale, middlewares) {
   const keys = [];
-  const allTexts = {};
+  const bundleTexts = {};
 
-  function applyMiddleware(text, ...args) {
-    if (!middlewares) {
-      return text;
-    }
+  function applyMiddlewares(text, parameters, code) {
+    if (!middlewares) return text;
 
     return middlewares.reduce((prevText, middleware, index) => {
       if (typeof middleware !== 'function') throw new Error('LocalizationManager: middleware [' + index + '] is not a function');
 
-      return middleware(prevText, ...args);
+      return middleware(prevText, parameters, code);
     }, text);
   }
 
   return {
-    addTexts(key, texts) {
-      // check that resources with that key have not been registered yet
-      if (keys.indexOf(key) > -1) {
-        return;
-      }
+    registerBundle(key, bundle) {
+      // skip if resources with given key have been already registered
+      if (keys.indexOf(key) > -1) return;
 
-      // extend l10n texts
-      for (let key in texts) {
-        if (texts.hasOwnProperty(key)) {
-          allTexts[key] = texts[key];
+      if (typeof bundle !== 'object') throw new Error('LocalizationManager: parameters is neither an object nor an array');
+
+      // extend bundleTexts
+      for (let key in bundle) {
+        if (bundle.hasOwnProperty(key)) {
+          bundleTexts[key] = bundle[key];
         }
       }
       keys.push(key);
     },
-    getText(code, ...args) {
-      const text = allTexts[code];
-      return text ? applyMiddleware(text, ...args) : code;
+    getLocale() {
+      return locale;
+    },
+    getText(code, parameters) {
+      return applyMiddlewares(bundleTexts[code], parameters, code);
     }
   };
 }

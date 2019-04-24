@@ -1,10 +1,13 @@
-function InsertParams(text, params = {}) {
-  if (typeof params !== 'object') throw new Error('InsertNamedParams: params is not an object');
+function InsertParams(text, parameters, code) {
+  if (!text) return text;
+  if (!parameters) return text;
+  if (typeof parameters !== 'object') throw new Error('InsertParams: parameters must be either an object or an array');
 
+  // insert parameters
   let nextText = text;
-  for (let key in params) {
-    if (params.hasOwnProperty(key)) {
-      nextText = text.replace('{{' + key + '}}', params[key]);
+  for (let key in parameters) {
+    if (parameters.hasOwnProperty(key)) {
+      nextText = text.replace('{{' + key + '}}', parameters[key]);
     }
   }
 

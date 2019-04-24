@@ -1,5 +1,6 @@
 const LocalizationManager = require('./l10n-manager');
 const InsertParams = require('./middlewares/InsertParams');
+const UseCodeIfNoText = require('./middlewares/UseCodeIfNoText');
 
 // test data
 const l10nResources = {
@@ -20,8 +21,8 @@ function addOne(text) {
 
 
 // test execution
-const l10n = new LocalizationManager('en', [InsertParams]);
-l10n.addTexts('test', l10nResources);
+const l10n = new LocalizationManager('en', [InsertParams, UseCodeIfNoText]);
+l10n.registerBundle('test', l10nResources);
 
 
 console.log(l10n.getText('button.open'));
@@ -31,9 +32,9 @@ console.log(l10n.getText('text.total_pages', { count: 6 }));
 console.log(l10n.getText('nonexistent.code'));
 
 
-// console.time('getText-10000-times');
-// let result = '';
-// for (let i = 0; i < 10000; i++) {
-//   result = l10n.getText('button.open');
-// }
-// console.timeEnd('getText-10000-times');
+console.time('getText-10000-times');
+let result = '';
+for (let i = 0; i < 10000; i++) {
+  result = l10n.getText('button.open');
+}
+console.timeEnd('getText-10000-times');

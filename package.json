@@ -1,7 +1,7 @@
 {
   "name": "l10n-manager",
   "version": "0.0.3",
-  "description": "Allows to manage localization texts",
+  "description": "Simple lightweight localization manager allows to manage localization texts",
   "main": "index.js",
   "files": [
     "/src/middlewares/*",
