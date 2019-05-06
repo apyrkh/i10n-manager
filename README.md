@@ -29,7 +29,7 @@ l10n.getText('button.close_in', { seconds: 5 }) === 'Close in 5 seconds'; // get
 
 ## Getting started
 
-In common case localization manager is used to get a text or a parameterized text by the `code`.
+In common case localization manager is used to get a text or a parameterized text by the code.
 
 ### Bundle
 
