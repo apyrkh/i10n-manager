@@ -1,9 +1,6 @@
-const LocalizationManager = require('./src/l10n-manager');
-const InsertParams = require('./src/middlewares/InsertParams');
-const UseCodeIfNoText = require('./src/middlewares/UseCodeIfNoText');
+import DefaultTextManager from 'text-manager/src/DefaultTextManager';
 
-function DefaultLocalizationManager(locale = 'en', middlewares = [InsertParams, UseCodeIfNoText]) {
-  return new LocalizationManager(locale, middlewares);
+
+export default function DefaultLocalizationManager(locale = 'en') {
+  return new DefaultTextManager();
 }
-
-module.exports = DefaultLocalizationManager;

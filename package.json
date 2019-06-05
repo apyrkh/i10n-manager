@@ -3,12 +3,9 @@
   "version": "0.0.3",
   "description": "Simple lightweight localization manager allows to manage localization texts",
   "main": "index.js",
-  "files": [
-    "/src/middlewares/*",
-    "/src/l10n-manager.js"
-  ],
+  "files": [],
   "scripts": {
-    "test": "node src/l10n-manager.test.js"
+    "test": "mocha -r esm src/**/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/apyrkh/l10n-manager/issues"
   },
-  "homepage": "https://github.com/apyrkh/l10n-manager#readme"
+  "homepage": "https://github.com/apyrkh/l10n-manager#readme",
+  "dependencies": {
+    "text-manager": "0.0.2"
+  },
+  "devDependencies": {
+    "esm": "3.2.25",
+    "mocha": "6.1.4"
+  }
 }

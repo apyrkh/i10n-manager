@@ -1,8 +1,5 @@
-const LocalizationManager = require('./l10n-manager');
-const InsertParams = require('./middlewares/InsertParams');
-const UseCodeIfNoText = require('./middlewares/UseCodeIfNoText');
+const LocalizationManager = require('../index').default;
 
-// test data
 const l10nResources = {
   'button.open': 'Open',
   'button.close': 'Close',
@@ -10,18 +7,7 @@ const l10nResources = {
   'text.total_pages': '{{count}} pages',
 };
 
-// test middlewares
-function addZero(text) {
-  return text + '0';
-}
-
-function addOne(text) {
-  return text + '1';
-}
-
-
-// test execution
-const l10n = new LocalizationManager('en', [InsertParams, UseCodeIfNoText]);
+const l10n = new LocalizationManager('en');
 l10n.registerBundle('test', l10nResources);
 
 
