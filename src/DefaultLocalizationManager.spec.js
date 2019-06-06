@@ -1,14 +1,15 @@
-const LocalizationManager = require('../index').default;
+import DefaultLocalizationManager from './DefaultLocalizationManager';
 
-const l10nResources = {
+
+const textsBundle = {
   'button.open': 'Open',
   'button.close': 'Close',
   'text.items_found': '{{0}} items found',
   'text.total_pages': '{{count}} pages',
 };
 
-const l10n = new LocalizationManager('en');
-l10n.registerBundle('test', l10nResources);
+const l10n = new DefaultLocalizationManager('en');
+l10n.registerTexts('test', textsBundle);
 
 
 console.log(l10n.getText('button.open'));

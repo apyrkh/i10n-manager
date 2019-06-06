@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/apyrkh/l10n-manager#readme",
   "dependencies": {
-    "text-manager": "0.0.2"
+    "text-manager": "0.0.4"
   },
   "devDependencies": {
     "esm": "3.2.25",
