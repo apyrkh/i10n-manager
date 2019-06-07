@@ -3,7 +3,9 @@
   "version": "0.0.3",
   "description": "Simple lightweight localization manager allows to manage localization texts",
   "main": "index.js",
-  "files": [],
+  "files": [
+    "/src/DefaultLocalizationManager.js"
+  ],
   "scripts": {
     "test": "mocha -r esm src/**/*.spec.js"
   },
