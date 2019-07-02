@@ -4,8 +4,6 @@ import { DefaultTextManager } from 'text-manager';
 export default function DefaultLocalizationManager(locale = 'en') {
   const textManager = new DefaultTextManager();
 
-  return {
-    getText: textManager.getText,
-    registerTexts: textManager.registerTexts,
-  };
+  this.addTexts = textManager.addTexts;
+  this.getText = textManager.getText;
 }

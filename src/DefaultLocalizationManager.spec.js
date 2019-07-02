@@ -8,8 +8,8 @@ const textsBundle = {
   'text.total_pages': '{{count}} pages',
 };
 
-const l10n = new DefaultLocalizationManager('en');
-l10n.registerTexts('test', textsBundle);
+const l10n = new DefaultLocalizationManager();
+l10n.addTexts('test', textsBundle);
 
 
 console.log(l10n.getText('button.open'));
@@ -17,6 +17,8 @@ console.log(l10n.getText('button.close'));
 console.log(l10n.getText('text.items_found', [5]));
 console.log(l10n.getText('text.total_pages', { count: 6 }));
 console.log(l10n.getText('nonexistent.code'));
+
+
 
 
 console.time('getText-10000-times');

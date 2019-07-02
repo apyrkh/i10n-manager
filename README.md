@@ -20,7 +20,7 @@ const buttonTexts = {
   'button.open_in': 'Open in {{0}} seconds',
   'button.close_in': 'Close in {{seconds}} seconds',
 };
-l10n.registerTexts('buttons', buttonTexts);
+l10n.addTexts('buttons', buttonTexts);
 
 // 3. use it
 l10n.getText('button.open') === 'Open'; // get a text without parameters
