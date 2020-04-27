@@ -1,6 +1,6 @@
 # ignored
-.idea/
-node_modules/
+.idea
+node_modules
 *.log
 *.iml
 *.ipr

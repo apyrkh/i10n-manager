@@ -1,9 +1,17 @@
-import { DefaultTextManager } from 'text-manager';
+import { createDefaultTextManager } from 'text-manager';
 
 
-export default function DefaultLocalizationManager(locale = 'en') {
-  const textManager = new DefaultTextManager();
+export default class DefaultLocalizationManager {
+  constructor(locale = 'en') {
+    this.locale = locale;
+    this.textManager = createDefaultTextManager();
+  }
 
-  this.addTexts = textManager.addTexts;
-  this.getText = textManager.getText;
+  addTexts() {
+    this.textManager.addTexts(...arguments)
+  }
+
+  getText() {
+    this.textManager.getText(...arguments)
+  }
 }
